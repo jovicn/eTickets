@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace eTickets.Models
 {
-    public class Actor:IEntityBase
+    public class Producer:IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -14,9 +13,9 @@ namespace eTickets.Models
         [Required(ErrorMessage = "Profile Picture is required")]
         public string ProfilePictureURL { get; set; }
 
-        [Display(Name = "Full name")]
+        [Display(Name = "Full Name")]
         [Required(ErrorMessage = "Name is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 50 chars")]
+        [StringLength(50, MinimumLength = 3,ErrorMessage ="Name must be between 3 and 50 chars")]
         public string FullName { get; set; }
 
         [Display(Name = "Biography")]
@@ -24,7 +23,6 @@ namespace eTickets.Models
         public string Bio { get; set; }
 
         //Relation
-        public List<Actor_Movie> Actors_Movies { get; set; }
-
+        public List<Movie> Movies { get; set; }
     }
 }
